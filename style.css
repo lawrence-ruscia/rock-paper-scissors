@@ -31,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #1b1a55;
 }
 
 /* Score-board */
@@ -38,39 +39,48 @@ body {
   display: flex;
   background-color: #1b1a55;
   justify-content: center;
+
+  margin-top: 2rem;
 }
 
-.player-move,
-.score-info,
-.computer-move {
-  width: 25%;
+.move-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  height: auto;
+  width: 15%;
 }
 
 /* Player-move */
-.player-move {
-  border: 2px solid white;
-  display: flex;
-  flex-direction: column;
-  height: auto;
-}
 
-.player-move img {
+#player-move img {
   max-width: 100%;
 }
 
 /* Score-info */
-.score-info {
-  border: 2px solid white;
-}
 .points-container {
   display: flex;
+  justify-content: center;
+  width: 75%;
+  height: auto;
+}
+
+.points-container p {
+  font-size: 5rem;
 }
 
 /* Computer-move */
-.computer-move {
-  border: 2px solid white;
+#computer-move img {
+  max-width: 100%;
 }
 
-.computer-move img {
-  max-width: 100%;
+/* Winner display */
+.winner-display {
+  margin: 2rem 0;
+  background-color: #9290c3;
+  width: 40%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
 }
