@@ -11,6 +11,7 @@ body {
   font-weight: 500;
   font-style: normal;
 }
+
 /* Header */
 .header {
   background-color: #2d033b;
@@ -22,4 +23,19 @@ body {
 .header p {
   color: #faf9f6;
   font-size: 1.5rem;
+}
+
+/* Main-content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Score board */
+.score-board {
+  display: flex;
+}
+
+.points-container {
+  display: flex;
 }
