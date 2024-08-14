@@ -30,15 +30,47 @@ body {
 .main-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 /* Score-board */
 .score-board {
   display: flex;
   background-color: #1b1a55;
+  justify-content: center;
+}
+
+.player-move,
+.score-info,
+.computer-move {
+  width: 25%;
+}
+
+/* Player-move */
+.player-move {
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.player-move img {
+  max-width: 100%;
 }
 
 /* Score-info */
+.score-info {
+  border: 2px solid white;
+}
 .points-container {
   display: flex;
+}
+
+/* Computer-move */
+.computer-move {
+  border: 2px solid white;
+}
+
+.computer-move img {
+  max-width: 100%;
 }
