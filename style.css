@@ -10,18 +10,19 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-style: normal;
+
+  color: #faf9f6;
 }
 
 /* Header */
 .header {
-  background-color: #2d033b;
+  background-color: #070f2b;
   display: flex;
   justify-content: center;
   padding: 1.5rem;
 }
 
 .header p {
-  color: #faf9f6;
   font-size: 1.5rem;
 }
 
@@ -31,11 +32,13 @@ body {
   flex-direction: column;
 }
 
-/* Score board */
+/* Score-board */
 .score-board {
   display: flex;
+  background-color: #1b1a55;
 }
 
+/* Score-info */
 .points-container {
   display: flex;
 }
