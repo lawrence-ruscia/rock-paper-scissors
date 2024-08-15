@@ -87,3 +87,10 @@ body {
   padding: 10px;
   border-radius: 10px;
 }
+
+/* Choices container */
+.choices-container {
+  background-color: #535c91;
+  display: flex;
+  flex-direction: column;
+}
