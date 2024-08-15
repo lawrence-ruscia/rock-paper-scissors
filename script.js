@@ -1,6 +1,8 @@
 let humanScore = 0;
 let computerScore = 0;
 
+let humanChoice = "";
+
 function getComputerChoice() {
   let randomNumber = getRandomInt();
 
@@ -16,9 +18,19 @@ function getRandomInt() {
 }
 
 function getHumanChoice() {
-  let choice = prompt("Choose your move (rock, paper, scissors): ");
+  const playerChoices = document.querySelector(".player-choices");
 
-  return choice;
+  playerChoices.addEventListener("click", (event) => {
+    const choices = {
+      rock: "rock",
+      paper: "paper",
+      scissors: "scissors",
+    };
+
+    if (choices[event.target.id]) {
+      humanChoice = choices[event.target.id];
+    }
+  });
 }
 
 function playRound(humanChoice, computerChoice) {
