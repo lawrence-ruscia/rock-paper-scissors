@@ -17,7 +17,7 @@ function getRandomInt() {
   return Math.floor(Math.random() * 3) + 1;
 }
 
-function getHumanChoice() {
+function setHumanChoice() {
   const playerChoices = document.querySelector(".player-choices");
 
   playerChoices.addEventListener("click", (event) => {
@@ -37,7 +37,7 @@ function playRound(humanChoice, computerChoice) {
   let humanMove = humanChoice.toLowerCase();
 
   if (!isValidChoice(humanMove)) {
-    humanMove = validateChoice(getHumanChoice).toLowerCase();
+    humanMove = validateChoice(setHumanChoice).toLowerCase();
   }
 
   if (humanMove === computerChoice) {
@@ -57,7 +57,7 @@ function playRound(humanChoice, computerChoice) {
 
 // Calls playRound 5 times
 function playGame() {
-  let humanChoice = getHumanChoice();
+  let humanChoice = setHumanChoice();
   let computerChoice = getComputerChoice();
 
   playRound(humanChoice, computerChoice);
