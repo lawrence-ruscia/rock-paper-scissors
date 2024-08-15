@@ -17,27 +17,15 @@ function getRandomInt() {
   return Math.floor(Math.random() * 3) + 1;
 }
 
-function setHumanChoice() {
-  const playerChoices = document.querySelector(".player-choices");
-
-  playerChoices.addEventListener("click", (event) => {
-    const choices = {
-      rock: "rock",
-      paper: "paper",
-      scissors: "scissors",
-    };
-
-    if (choices[event.target.id]) {
-      humanChoice = choices[event.target.id];
-    }
-  });
+function getHumanChoice() {
+  return choice;
 }
 
 function playRound(humanChoice, computerChoice) {
   let humanMove = humanChoice.toLowerCase();
 
   if (!isValidChoice(humanMove)) {
-    humanMove = validateChoice(setHumanChoice).toLowerCase();
+    humanMove = validateChoice(getHumanChoice).toLowerCase();
   }
 
   if (humanMove === computerChoice) {
@@ -55,14 +43,26 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-// Calls playRound 5 times
 function playGame() {
-  let humanChoice = setHumanChoice();
-  let computerChoice = getComputerChoice();
+  const choiceButtons = document.querySelectorAll(".choice-btn");
 
-  playRound(humanChoice, computerChoice);
+  choiceButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const buttonId = e.currentTarget.id;
 
-  determineWinner();
+      const choices = {
+        rock: "rock",
+        paper: "paper",
+        scissors: "scissors",
+      };
+
+      if (choices[buttonId]) {
+        playRound(buttonId, getComputerChoice());
+      }
+    });
+  });
+
+  // determineWinner();
 }
 
 function determineWinner() {
