@@ -102,6 +102,10 @@ body {
   gap: 20px;
 }
 
+.choices-container p {
+  font-size: 1.2rem;
+}
+
 .player-choices {
   display: flex;
   gap: 20px;
