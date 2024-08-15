@@ -45,14 +45,10 @@ function playRound(humanChoice, computerChoice) {
 
 // Calls playRound 5 times
 function playGame() {
-  const ROUND_COUNT = 5;
+  let humanChoice = getHumanChoice();
+  let computerChoice = getComputerChoice();
 
-  for (let i = 0; i < ROUND_COUNT; i++) {
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
-
-    playRound(humanChoice, computerChoice);
-  }
+  playRound(humanChoice, computerChoice);
 
   determineWinner();
 }
