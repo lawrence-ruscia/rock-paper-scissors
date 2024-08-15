@@ -57,10 +57,16 @@ function playRound(humanChoice, computerChoice) {
 
 // Calls playRound 5 times
 function playGame() {
-  let humanChoice = setHumanChoice();
-  let computerChoice = getComputerChoice();
 
-  playRound(humanChoice, computerChoice);
+  const ROUND_COUNT = 5;
+>>>>>>> parent of b1d8e91 (Remove logic to play five rounds)
+
+  for (let i = 0; i < ROUND_COUNT; i++) {
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+
+    playRound(humanChoice, computerChoice);
+  }
 
   determineWinner();
 }
