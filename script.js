@@ -24,10 +24,6 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
   let humanMove = humanChoice.toLowerCase();
 
-  if (!isValidChoice(humanMove)) {
-    humanMove = validateChoice(getHumanChoice).toLowerCase();
-  }
-
   if (humanMove === computerChoice) {
     console.log("Round finished by a tie!");
 
@@ -105,22 +101,6 @@ function validateHumanWin(humanMove, computerChoice) {
     (isPaper(humanMove) && isRock(computerChoice)) ||
     (isScissors(humanMove) && isPaper(computerChoice))
   );
-}
-
-function isValidChoice(choice) {
-  const validChoices = ["rock", "paper", "scissors"];
-
-  return validChoices.includes(choice);
-}
-
-function validateChoice(getChoice) {
-  let choice;
-  do {
-    console.log("Invalid move! choose between rock, paper, or scissors.");
-    choice = getChoice();
-  } while (!isValidChoice(choice));
-
-  return choice;
 }
 
 playGame();
