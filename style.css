@@ -54,6 +54,7 @@ body {
 /* Player-move */
 
 #player-move img {
+  flex: auto;
   max-width: 70%;
 }
 
@@ -75,6 +76,7 @@ body {
 
 /* Computer-move */
 #computer-move img {
+  flex: auto;
   max-width: 70%;
 }
 
