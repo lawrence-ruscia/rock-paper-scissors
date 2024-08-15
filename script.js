@@ -1,7 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 
-let humanChoice = "";
+let choice = "";
 
 function getComputerChoice() {
   let randomNumber = getRandomInt();
@@ -22,7 +22,8 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  let humanMove = humanChoice.toLowerCase();
+  changePlayerImg(humanChoice);
+  changeComputerImg(computerChoice);
 
   if (humanMove === computerChoice) {
     console.log("Round finished by a tie!");
@@ -37,6 +38,45 @@ function playRound(humanChoice, computerChoice) {
     displayRoundWinner("Computer", computerChoice, humanMove);
     computerScore++;
   }
+}
+
+function changePlayerImg(choice) {
+  const playerImg = document.querySelector("#player-img");
+
+  // TODO: Add logic to change playerMove img based on humanChoice
+  let newImageSrc;
+  switch (choice) {
+    case "rock":
+      newImageSrc = "./icons/left-fist.png";
+      break;
+    case "paper":
+      newImageSrc = "./icons/left-palm.png";
+      break;
+    case "scissors":
+      newImageSrc = "./icons/left-peace.png";
+      break;
+  }
+
+  playerImg.src = newImageSrc;
+}
+
+function changeComputerImg(choice) {
+  const computerImg = document.querySelector("#computer-img");
+
+  let newImageSrc;
+  switch (choice) {
+    case "rock":
+      newImageSrc = "./icons/right-fist.png";
+      break;
+    case "paper":
+      newImageSrc = "./icons/right-palm.png";
+      break;
+    case "scissors":
+      newImageSrc = "./icons/right-peace.png";
+      break;
+  }
+
+  computerImg.src = newImageSrc;
 }
 
 function playGame() {
