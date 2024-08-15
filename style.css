@@ -55,7 +55,7 @@ body {
 
 #player-move img {
   flex: auto;
-  max-width: 70%;
+  max-width: 60%;
 }
 
 /* Score-info */
@@ -77,7 +77,7 @@ body {
 /* Computer-move */
 #computer-move img {
   flex: auto;
-  max-width: 70%;
+  max-width: 60%;
 }
 
 /* Winner display */
@@ -88,10 +88,13 @@ body {
   text-align: center;
   padding: 10px;
   border-radius: 10px;
+
+  font-size: small;
 }
 
 /* Choices container */
 .choices-container {
+  margin-top: 1rem;
   background-color: #1b1a55;
   display: flex;
   flex-direction: column;
@@ -103,12 +106,24 @@ body {
   display: flex;
   gap: 20px;
 }
+
 /* Choice buttons */
 .choice-btn {
-  border: 2px solid lime;
+  background-color: #535c91;
   width: 110px;
   height: 100px;
   border-radius: 10px;
+}
+
+.choice-btn:hover {
+  background-color: #6d79bc;
+  cursor: pointer;
+}
+
+/* Icon */
+.icon {
+  font-size: 80px;
+  color: #faf9f6;
 }
 
 /* New game button */
@@ -123,4 +138,9 @@ body {
   width: 30%;
   padding: 10px;
   border-radius: 10px;
+}
+
+.new-game-btn:hover {
+  background-color: rgb(244, 29, 72);
+  cursor: pointer;
 }
