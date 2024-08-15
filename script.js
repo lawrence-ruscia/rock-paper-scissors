@@ -25,17 +25,17 @@ function playRound(humanChoice, computerChoice) {
   changePlayerImg(humanChoice);
   changeComputerImg(computerChoice);
 
-  if (humanMove === computerChoice) {
+  if (humanChoice === computerChoice) {
     console.log("Round finished by a tie!");
 
     return;
   }
 
-  if (validateHumanWin(humanMove, computerChoice)) {
-    displayRoundWinner("Human", humanMove, computerChoice);
+  if (validateHumanWin(humanChoice, computerChoice)) {
+    displayRoundWinner("Human", humanChoice, computerChoice);
     humanScore++;
   } else {
-    displayRoundWinner("Computer", computerChoice, humanMove);
+    displayRoundWinner("Computer", computerChoice, humanChoice);
     computerScore++;
   }
 }
