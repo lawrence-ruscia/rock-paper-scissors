@@ -35,10 +35,10 @@ function playRound(humanChoice, computerChoice) {
 
   if (validateHumanWin(humanChoice, computerChoice)) {
     displayRoundWinner("Human", humanChoice, computerChoice);
-    humanScore++;
+    updateScore(isHuman);
   } else {
     displayRoundWinner("Computer", computerChoice, humanChoice);
-    computerScore++;
+    updateScore(!isHuman);
   }
 }
 
@@ -133,5 +133,16 @@ function validateHumanWin(humanMove, computerChoice) {
     (isScissors(humanMove) && isPaper(computerChoice))
   );
 }
+
+function updateScore(isHuman) {
+  if (isHuman) {
+    humanScore++;
+    return;
+  }
+
+  computerScore++;
+}
+
+function displayScore(scoreType) {}
 
 playGame();
