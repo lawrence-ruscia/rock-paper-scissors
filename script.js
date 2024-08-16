@@ -22,6 +22,11 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
+  let isHuman = true;
+
+  changeIconState(isHuman, humanChoice);
+  changeIconState(!isHuman, computerChoice);
+
   if (humanChoice === computerChoice) {
     displayRoundTie();
 
@@ -75,6 +80,27 @@ function determineWinner() {
   } else {
     console.log(`Computer won by ${scoreDiff} pts`);
   }
+}
+
+function changeIconState(isHuman, choice) {
+  const playerIcon = document.querySelector(".player-icon");
+  if (isHuman) {
+    playerIcon.textContent = getIcon(choice);
+    return;
+  }
+
+  const computerIcon = document.querySelector(".computer-icon");
+  computerIcon.textContent = getIcon(choice);
+}
+
+function getIcon(choice) {
+  const icons = {
+    rock: "✊",
+    paper: "✋",
+    scissors: "✌",
+  };
+
+  return icons[choice];
 }
 
 function isRock(choice) {
