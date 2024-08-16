@@ -23,7 +23,7 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
-    console.log("Round finished by a tie!");
+    displayRoundTie();
 
     return;
   }
@@ -90,7 +90,14 @@ function isScissors(choice) {
 }
 
 function displayRoundWinner(winner, winnerChoice, losingChoice) {
-  console.log(`${winner} wins! ${winnerChoice} beats ${losingChoice}`);
+  const winnerText = document.querySelector(".winner-text");
+  winnerText.textContent = `${winner} wins! "${winnerChoice}" beats "${losingChoice}"`;
+}
+
+function displayRoundTie() {
+  const winnerText = document.querySelector(".winner-text");
+
+  winnerText.textContent = "Round finished by a tie!";
 }
 
 function validateHumanWin(humanMove, computerChoice) {
