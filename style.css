@@ -144,7 +144,7 @@ body {
   background-color: crimson;
   font-size: 0.7rem;
 
-  width: 30%;
+  min-width: 370px;
   padding: 10px;
   border-radius: 10px;
 }
