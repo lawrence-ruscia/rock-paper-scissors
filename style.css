@@ -44,7 +44,7 @@ body {
 .score-board {
   display: flex;
   background-color: #1b1a55;
-  justify-content: center;
+  justify-content: space-between;
   padding: 1.5rem;
 }
 
@@ -57,16 +57,16 @@ body {
   width: 13%;
 }
 
-/* Player-move */
-
-#player-move img {
-  flex: auto;
-  max-width: 60%;
+.player-icon,
+.computer-icon {
+  font-size: 5rem;
 }
 
 /* Score-info */
 #score-info {
   display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
 .points-container {
@@ -77,24 +77,23 @@ body {
 }
 
 .points-container p {
-  font-size: 5rem;
-}
-
-/* Computer-move */
-#computer-move img {
-  flex: auto;
-  max-width: 60%;
+  font-size: 3rem;
 }
 
 /* Winner display */
 .winner-display {
+  display: flex;
+  justify-content: center;
+  min-width: 370px;
+}
+
+.winner-display p {
   margin: 2rem 0;
   background-color: #535c91;
-  width: 30%;
   text-align: center;
+  min-width: 100%;
   padding: 10px;
   border-radius: 10px;
-
   font-size: small;
 }
 
