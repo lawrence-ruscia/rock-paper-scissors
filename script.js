@@ -40,6 +40,8 @@ function playRound(humanChoice, computerChoice) {
     displayRoundWinner("Computer", computerChoice, humanChoice);
     updateScore(!isHuman);
   }
+
+  displayScore();
 }
 
 function playGame() {
@@ -143,6 +145,12 @@ function updateScore(isHuman) {
   computerScore++;
 }
 
-function displayScore(scoreType) {}
+function displayScore() {
+  const playerPoints = document.querySelector(".player-points");
+  const computerPoints = document.querySelector(".computer-points");
+
+  playerPoints.textContent = humanScore;
+  computerPoints.textContent = computerScore;
+}
 
 playGame();
