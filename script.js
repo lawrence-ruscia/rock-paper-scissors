@@ -100,12 +100,4 @@ function displayRoundTie() {
   winnerText.textContent = "Round finished by a tie!";
 }
 
-function validateHumanWin(humanMove, computerChoice) {
-  return (
-    (isRock(humanMove) && isScissors(computerChoice)) ||
-    (isPaper(humanMove) && isRock(computerChoice)) ||
-    (isScissors(humanMove) && isPaper(computerChoice))
-  );
-}
-
 playGame();
