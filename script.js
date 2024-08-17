@@ -1,5 +1,7 @@
-let humanScore = 0;
-let computerScore = 0;
+const gameState = {
+  humanScore: 0,
+  computerScore: 0,
+};
 
 function getComputerChoice() {
   let randomNumber = getRandomInt();
@@ -117,19 +119,19 @@ function validateHumanWin(humanMove, computerChoice) {
 
 function updateScore(isHuman) {
   if (isHuman) {
-    humanScore++;
+    gameState.humanScore++;
     return;
   }
 
-  computerScore++;
+  gameState.computerScore++;
 }
 
 function displayScore() {
   const playerPoints = document.querySelector(".player-points");
   const computerPoints = document.querySelector(".computer-points");
 
-  playerPoints.textContent = humanScore;
-  computerPoints.textContent = computerScore;
+  playerPoints.textContent = gameState.humanScore;
+  computerPoints.textContent = gameState.computerScore;
 }
 
 playGame();
