@@ -6,7 +6,7 @@ const gameState = {
 function getComputerChoice() {
   let randomNumber = getRandomInt();
 
-  return randomNumber === 1 // rock: 1, paper: 2, scissors: 3
+  return randomNumber === 1 // 1: rock, 2: paper, 3: scissors
     ? "rock"
     : randomNumber === 2
     ? "paper"
@@ -64,13 +64,36 @@ function playGame() {
         if (isGameFinished()) {
           playerChoices.removeEventListener("click", handleChoiceClick);
         }
+
+        // FIX: New game button should also reset how the game works,
+        // e.g If the game is finished, it should let you play again
+        // instead of removing listener
       }
     }
   }
 
   playerChoices.addEventListener("click", handleChoiceClick);
+  resetGame();
 }
 
+function resetGame() {
+  const DEFAULT_ICON = "❔";
+
+  const newGameBtn = document.querySelector(".new-game-btn");
+
+  const playerIcon = document.querySelector(".player-icon");
+  const computerIcon = document.querySelector(".computer-icon");
+
+  newGameBtn.addEventListener("click", () => {
+    playerIcon.textContent = DEFAULT_ICON;
+    computerIcon.textContent = DEFAULT_ICON;
+    gameState.humanScore = 0;
+    gameState.computerScore = 0;
+
+    // update score state each click
+    displayScore();
+  });
+}
 function isGameFinished() {
   return gameState.humanScore === 5 || gameState.computerScore === 5;
 }
@@ -148,8 +171,8 @@ function displayScore() {
   const playerPoints = document.querySelector(".player-points");
   const computerPoints = document.querySelector(".computer-points");
 
-  playerPoints.textContent = gameState.humanScore;
-  computerPoints.textContent = gameState.computerScore;
+  if (playerPoints) playerPoints.textContent = gameState.humanScore;
+  if (computerPoints) computerPoints.textContent = gameState.computerScore;
 }
 
 playGame();
