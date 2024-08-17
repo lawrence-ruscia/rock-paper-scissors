@@ -1,8 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
 
-let choice = "";
-
 function getComputerChoice() {
   let randomNumber = getRandomInt();
 
@@ -15,10 +13,6 @@ function getComputerChoice() {
 
 function getRandomInt() {
   return Math.floor(Math.random() * 3) + 1;
-}
-
-function getHumanChoice() {
-  return choice;
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -63,26 +57,11 @@ function playGame() {
     });
   });
 
-  // determineWinner();
+  // TODO: Implement logic to display overall winner after ONE PLAYER reaches 5 points
+  determineWinner();
 }
 
-function determineWinner() {
-  if (humanScore === computerScore) {
-    console.log("It's a tie!");
-    return;
-  }
-
-  let scoreDiff =
-    humanScore > computerScore
-      ? humanScore - computerScore
-      : computerScore - humanScore;
-
-  if (humanScore > computerScore) {
-    console.log(`Human won by ${scoreDiff} pts`);
-  } else {
-    console.log(`Computer won by ${scoreDiff} pts`);
-  }
-}
+function determineWinner() {}
 
 function changeIconState(isHuman, choice) {
   const playerIcon = document.querySelector(".player-icon");
