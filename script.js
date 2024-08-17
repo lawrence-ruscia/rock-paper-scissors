@@ -25,7 +25,6 @@ function playRound(humanChoice, computerChoice) {
 
   if (humanChoice === computerChoice) {
     displayRoundTie();
-
     return;
   }
 
@@ -38,6 +37,8 @@ function playRound(humanChoice, computerChoice) {
   }
 
   displayScore();
+
+  determineWinner();
 }
 
 function playGame() {
@@ -58,12 +59,26 @@ function playGame() {
       }
     });
   });
-
-  // TODO: Implement logic to display overall winner after ONE PLAYER reaches 5 points
-  determineWinner();
 }
 
-function determineWinner() {}
+function determineWinner() {
+  if (gameState.humanScore === 5 || gameState.computerScore === 5) {
+    displayOverallWinner();
+  }
+}
+function getOverallWinner() {
+  if (gameState.humanScore === 5) return "human";
+  if (gameState.computerScore === 5) return "computer";
+}
+
+function displayOverallWinner() {
+  const overallWinner = document.querySelector(".overall-winner");
+  const winner = getOverallWinner();
+
+  overallWinner.style.backgroundColor = "#faf9f6";
+  overallWinner.style.color = "#535c91";
+  overallWinner.textContent = `${winner.toUpperCase()} WINS!`;
+}
 
 function changeIconState(isHuman, choice) {
   const playerIcon = document.querySelector(".player-icon");
@@ -87,14 +102,14 @@ function getIcon(choice) {
 }
 
 function displayRoundWinner(winner, winnerChoice, losingChoice) {
-  const winnerText = document.querySelector(".winner-text");
-  winnerText.textContent = `${winner} wins! "${winnerChoice}" beats "${losingChoice}"`;
+  const roundWinner = document.querySelector(".round-winner");
+  roundWinner.textContent = `${winner} wins! "${winnerChoice}" beats "${losingChoice}"`;
 }
 
 function displayRoundTie() {
-  const winnerText = document.querySelector(".winner-text");
+  const roundWinner = document.querySelector(".round-winner");
 
-  winnerText.textContent = "Round finished by a tie!";
+  roundWinner.textContent = "Round finished by a tie!";
 }
 
 function validateHumanWin(humanMove, computerChoice) {

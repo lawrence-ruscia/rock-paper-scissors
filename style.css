@@ -86,16 +86,21 @@ body {
   display: flex;
   justify-content: center;
   min-width: 370px;
+  flex-direction: column;
 }
 
 .winner-display p {
-  margin: 2rem 0;
-  background-color: #535c91;
+  margin: 0.5em 0;
   text-align: center;
   min-width: 100%;
   padding: 10px;
   border-radius: 10px;
   font-size: small;
+  flex: 1;
+}
+
+.round-winner {
+  background-color: #535c91;
 }
 
 /* Choices container */
