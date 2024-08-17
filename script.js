@@ -63,11 +63,12 @@ function playGame() {
         // remove listener from delegation point
         if (isGameFinished()) {
           playerChoices.removeEventListener("click", handleChoiceClick);
+          const newGameBtn = document.querySelector(".new-game-btn");
+          newGameBtn.addEventListener("click", () => {
+            resetGame();
+            playerChoices.addEventListener("click", handleChoiceClick);
+          });
         }
-
-        // FIX: New game button should also reset how the game works,
-        // e.g If the game is finished, it should let you play again
-        // instead of removing listener
       }
     }
   }
@@ -78,22 +79,23 @@ function playGame() {
 
 function resetGame() {
   const DEFAULT_ICON = "❔";
-
-  const newGameBtn = document.querySelector(".new-game-btn");
-
   const playerIcon = document.querySelector(".player-icon");
   const computerIcon = document.querySelector(".computer-icon");
+
+  const newGameBtn = document.querySelector(".new-game-btn");
+  const overallWinner = document.querySelector(".overall-winner");
 
   newGameBtn.addEventListener("click", () => {
     playerIcon.textContent = DEFAULT_ICON;
     computerIcon.textContent = DEFAULT_ICON;
     gameState.humanScore = 0;
     gameState.computerScore = 0;
-
+    overallWinner.style.display = "none"; // disable element
     // update score state each click
     displayScore();
   });
 }
+
 function isGameFinished() {
   return gameState.humanScore === 5 || gameState.computerScore === 5;
 }
@@ -113,6 +115,7 @@ function displayOverallWinner() {
   const overallWinner = document.querySelector(".overall-winner");
   const winner = getOverallWinner();
 
+  overallWinner.style.display = "block"; // enable element
   overallWinner.style.backgroundColor = "#faf9f6";
   overallWinner.style.color = "#535c91";
   overallWinner.textContent = `${winner.toUpperCase()} WINS!`;
