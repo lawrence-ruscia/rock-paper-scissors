@@ -86,18 +86,6 @@ function getIcon(choice) {
   return icons[choice];
 }
 
-function isRock(choice) {
-  return choice === "rock";
-}
-
-function isPaper(choice) {
-  return choice === "paper";
-}
-
-function isScissors(choice) {
-  return choice === "scissors";
-}
-
 function displayRoundWinner(winner, winnerChoice, losingChoice) {
   const winnerText = document.querySelector(".winner-text");
   winnerText.textContent = `${winner} wins! "${winnerChoice}" beats "${losingChoice}"`;
@@ -111,9 +99,9 @@ function displayRoundTie() {
 
 function validateHumanWin(humanMove, computerChoice) {
   return (
-    (isRock(humanMove) && isScissors(computerChoice)) ||
-    (isPaper(humanMove) && isRock(computerChoice)) ||
-    (isScissors(humanMove) && isPaper(computerChoice))
+    (humanMove === "rock" && computerChoice === "scissors") ||
+    (humanMove === "paper" && computerChoice === "rock") ||
+    (humanMove === "scissors" && computerChoice === "paper")
   );
 }
 
