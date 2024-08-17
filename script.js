@@ -37,16 +37,18 @@ function playRound(humanChoice, computerChoice) {
   }
 
   displayScore();
-
   determineWinner();
 }
 
 function playGame() {
-  const choiceButtons = document.querySelectorAll(".choice-btn");
+  const playerChoices = document.querySelector(".player-choices");
 
-  choiceButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const buttonId = e.currentTarget.id;
+  function handleChoiceClick(event) {
+    // The closest button relative to target
+    const button = event.target.closest("button");
+
+    if (button) {
+      const buttonId = button.id;
 
       const choices = {
         rock: "rock",
@@ -56,16 +58,29 @@ function playGame() {
 
       if (choices[buttonId]) {
         playRound(buttonId, getComputerChoice());
+
+        // After checking each round if the game is finished,
+        // remove listener from delegation point
+        if (isGameFinished()) {
+          playerChoices.removeEventListener("click", handleChoiceClick);
+        }
       }
-    });
-  });
+    }
+  }
+
+  playerChoices.addEventListener("click", handleChoiceClick);
+}
+
+function isGameFinished() {
+  return gameState.humanScore === 5 || gameState.computerScore === 5;
 }
 
 function determineWinner() {
-  if (gameState.humanScore === 5 || gameState.computerScore === 5) {
+  if (isGameFinished()) {
     displayOverallWinner();
   }
 }
+
 function getOverallWinner() {
   if (gameState.humanScore === 5) return "human";
   if (gameState.computerScore === 5) return "computer";
